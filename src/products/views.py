@@ -46,6 +46,26 @@ class ProductListView(ListView):
         return Product.objects.all()
 
 
+class ProductDetailSlugView(DetailView):
+    queryset = Product.objects.all()
+    template_name = "products/detail.html"
+
+    def get_object(self, *args, **kwargs):
+        request = self.request
+        slug = self.kwargs.get('slug')
+        # instance = get_object_or_404(Product, slug=slug, active=True)
+        try:
+            instance = Product.objects.get(slug=slug, active=True)
+        except Product.DoesNotExist:
+            raise Http404("Nt fund")
+        except Product.MultipleObjectsReturned:
+            queryset = Product.objects.filter(slug=slug, active=True)
+            instance = qs.first()
+        except:
+            raise Http404("Uhnmmmm")
+        return instance
+
+
 class ProductDetailView(DetailView):
     # queryset = Product.objects.all()
     template_name = "products/detail.html"
@@ -56,13 +76,13 @@ class ProductDetailView(DetailView):
         print(context)
         return context
 
-    # def get_object(self, *args, **kwargs):
-    #     request = self.request
-    #     pk = self.kwargs.get('pk')
-    #     instance = Product.objects.get_by_id(pk)
-    #     if instance is None:
-    #         raise Http404("Product doesn't exist")
-    #     return instance
+    def get_object(self, *args, **kwargs):
+        request = self.request
+        pk = self.kwargs.get('pk')
+        instance = Product.objects.get_by_id(pk)
+        if instance is None:
+            raise Http404("Product doesn't exist")
+        return instance
 
 
 def product_detail_view(request, pk=None, *args, **kwargs):
