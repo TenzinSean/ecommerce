@@ -2,7 +2,7 @@ from django.conf.urls import url
 from django.urls import path
 
 
-from products.views import (
+from .views import (
     ProductListView,
     # product_list_view,
     # ProductDetailView,
@@ -14,5 +14,5 @@ from products.views import (
 
 urlpatterns = [
     path('products/', ProductListView.as_view()),
-    path('products/<slug:slug>', ProductDetailSlugView.as_view()),
+    path('products/<slug:slug>/', ProductDetailSlugView.as_view()),
 ]

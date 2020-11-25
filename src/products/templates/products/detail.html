@@ -1,6 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
 <h2>Detail here:</h2> <br/>
     {{ object.title }} <br/>
     {{ object.description }} <br/>
 <img src='{{ object.image.url  }}' class='img-fluid' width=150 height=150/>
 
+{% endblock %}
     

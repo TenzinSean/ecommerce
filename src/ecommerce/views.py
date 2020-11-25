@@ -32,7 +32,7 @@ def contact_page(request):
     context = {
         "title": "Contact page",
         "content": "Welcome to the contactpage",
-        "form": contact_form
+        "form": contact_form,
     }
 
     if contact_form.is_valid():

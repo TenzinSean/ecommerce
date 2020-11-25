@@ -1,3 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="text-center">
+    <h1>Contact page</h1>
+</div>
+
+<div class="container">
+    <div class="row">
+        <p>{{ content }}</p>
+        <div class="col-sm-6 col-12">
+            <form method='POST'> {% csrf_token %}
+                {{ form }}
+                <button type="submit">Submit</button>
+            </form>
+        
+        </div>
+    </div>
+</div>
+
+
+
+<br>
+
+{% endblock %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,33 +35,6 @@
 
 </head>
 <body>
-    <div class="text-center">
-        <h1>Contact page</h1>
-    </div>
-
-    <div class="container">
-        <div class="row">
-            <p>{{ content }}</p>
-            <div class="col-sm-6 col-12">
-                <form method='POST'> {% csrf_token %}
-                    {{ form }}
-                    <button type="submit">Submit</button>
-                </form>
-            
-            </div>
-        </div>
-    </div>
-
-
-  
-    <br>
-
-    <!-- <form method='POST'> {% csrf_token %}
-        <input type="text" class="form-control" placeholder="Name" name="fullname">
-        <input type="email" class="form-control" placeholder="Email" name="email">
-        <textarea name="content" id="" cols="30" rows="10"></textarea>
-        <button type="submit">Submit</button>
-    </form> -->
 
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

@@ -59,7 +59,7 @@ class ProductDetailSlugView(DetailView):
         except Product.DoesNotExist:
             raise Http404("Nt fund")
         except Product.MultipleObjectsReturned:
-            queryset = Product.objects.filter(slug=slug, active=True)
+            qs = Product.objects.filter(slug=slug, active=True)
             instance = qs.first()
         except:
             raise Http404("Uhnmmmm")
