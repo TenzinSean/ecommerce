@@ -1,10 +1,19 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2>Detail here:</h2> <br/>
-    {{ object.title }} <br/>
-    {{ object.description }} <br/>
-<img src='{{ object.image.url  }}' class='img-fluid' width=150 height=150/>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>{{ object.title }}</h1> <br/>
+            {{ object.timestamp|timesince }} ago
+            <h3>{{ "Some here"|title }}</h3>
+            {{ object.description }} <br/>
+            {% if object.image %}
+                <img src='{{ object.image.url  }}' class='img-fluid' width=150 height=150/>
+            {% endif %}
+        </div>
+    </div>
+</div>
 
 {% endblock %}
     
