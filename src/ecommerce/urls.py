@@ -29,7 +29,7 @@ urlpatterns = [
     path('register/', register_page, name='register'),
     path('bootstrap/', TemplateView.as_view(template_name='bootstrap/example.html')),
     # path('products/', include("products.urls")),
-    path('searchs/', include("search.urls")),
+    path('searchs/', include("search.urls"), name='search'),
     path('featured/', ProductFeaturedListView.as_view()),
     path('featured/<int:pk>', ProductFeaturedDetailView.as_view()),
     path('products/', ProductListView.as_view(), name='products'),
