@@ -6,6 +6,8 @@ from django.contrib import admin
 from django.urls import include, path
 from django.views.generic import TemplateView
 
+from carts.views import cart_home
+
 
 from products.views import (
     ProductListView,
@@ -26,6 +28,7 @@ urlpatterns = [
     path('about/', about_page, name='about'),
     path('contact/', contact_page, name='contact'),
     path('login/', login_page, name='login'),
+    path('cart/', cart_home, name='cart'),
     path('register/', register_page, name='register'),
     path('bootstrap/', TemplateView.as_view(template_name='bootstrap/example.html')),
     # path('products/', include("products.urls")),
