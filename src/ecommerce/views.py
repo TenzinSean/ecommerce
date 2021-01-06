@@ -9,8 +9,8 @@ from .forms import ContactForm, LoginForm, RegisterForm
 
 
 def home_page(request):
-    if not request.user.is_authenticated:
-        return Login
+    # if not request.user.is_authenticated:
+    #     return none
     print(request.session.get("first_name", "Unknown"))
     # request.session["first_name"]
     context = {
